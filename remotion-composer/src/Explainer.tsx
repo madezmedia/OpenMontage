@@ -442,7 +442,6 @@ const VideoScene: React.FC<{ src: string; startFrom?: number }> = ({
           objectFit: "cover",
           opacity: fadeIn * fadeOut,
         }}
-        muted
       />
       <Vignette />
     </AbsoluteFill>

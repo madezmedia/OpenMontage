@@ -1,24 +1,30 @@
-.PHONY: setup install install-dev install-gpu test test-contracts lint clean preflight demo demo-list hyperframes-doctor hyperframes-warm
+.PHONY: setup install install-dev install-gpu test test-contracts lint clean preflight demo demo-list hyperframes-doctor hyperframes-warm venv
+
+PYTHON ?= python3.11
+VENV_DIR ?= .venv
+VENV_PYTHON := $(VENV_DIR)/bin/python
+VENV_PIP := $(VENV_DIR)/bin/pip
 
 # ---- One-command setup ----
 
 setup:
 	@echo "==> Installing Python dependencies..."
-	pip install -r requirements.txt
+	$(MAKE) venv
+	$(VENV_PIP) install -r requirements.txt
 	@echo ""
 	@echo "==> Installing Remotion composer..."
 	cd remotion-composer && npm install
 	@echo ""
 	@echo "==> Installing free offline TTS (Piper)..."
-	pip install piper-tts || echo "  [skip] piper-tts install failed — TTS will use cloud providers instead"
+	$(VENV_PIP) install piper-tts || echo "  [skip] piper-tts install failed — TTS will use cloud providers instead"
 	@echo ""
 	@echo "==> Installing HyperFrames runtime (cache-warm via npx)..."
 	@echo "    Pulls the 'hyperframes' npm package into the local npx cache so the"
 	@echo "    first render doesn't pay a 30-60s cold-fetch penalty. ~20MB of disk."
 	@npx --yes hyperframes --version >/dev/null 2>&1 && echo "    HyperFrames CLI cached (npx)" || echo "  [skip] HyperFrames cache-warm failed — offline or npm unavailable; first render will fetch on demand"
-	@python -c "from tools.video.hyperframes_compose import HyperFramesCompose; HyperFramesCompose._npm_resolve_cache=None; c=HyperFramesCompose()._runtime_check(); print(f'    HyperFrames runtime_available={c[\"runtime_available\"]}, npm={c.get(\"npm_package_version\") or c.get(\"npm_resolve_error\")}'); [print(f'    note: {r}') for r in c['reasons']]" || echo "  [skip] HyperFrames check failed — runtime can be set up later"
+	@$(VENV_PYTHON) -c "from tools.video.hyperframes_compose import HyperFramesCompose; HyperFramesCompose._npm_resolve_cache=None; c=HyperFramesCompose()._runtime_check(); print(f'    HyperFrames runtime_available={c[\"runtime_available\"]}, npm={c.get(\"npm_package_version\") or c.get(\"npm_resolve_error\")}'); [print(f'    note: {r}') for r in c['reasons']]" || echo "  [skip] HyperFrames check failed — runtime can be set up later"
 	@echo ""
-	python -c "import shutil, os; e=os.path.exists('.env'); shutil.copy('.env.example','.env') if not e else None; print('==> Created .env from .env.example — add your API keys there.' if not e else '==> .env already exists — skipping.')"
+	@$(VENV_PYTHON) -c "import shutil, os; e=os.path.exists('.env'); shutil.copy('.env.example','.env') if not e else None; print('==> Created .env from .env.example — add your API keys there.' if not e else '==> .env already exists — skipping.')"
 	@echo ""
 	@echo "Done! Open this project in your AI coding assistant and start creating."
 	@echo "  Optional: add API keys to .env to unlock cloud providers."
@@ -29,14 +35,22 @@ setup:
 # ---- Individual installs ----
 
 install:
-	pip install -r requirements.txt
+	$(MAKE) venv
+	$(VENV_PIP) install -r requirements.txt
 
 install-dev:
-	pip install -r requirements-dev.txt
+	$(MAKE) venv
+	$(VENV_PIP) install -r requirements-dev.txt
 
 install-gpu:
-	pip install -r requirements-gpu.txt
-	pip install diffusers transformers accelerate
+	$(MAKE) venv
+	$(VENV_PIP) install -r requirements-gpu.txt
+	$(VENV_PIP) install diffusers transformers accelerate
+
+venv:
+	@if [ ! -x "$(VENV_PYTHON)" ]; then \
+		$(PYTHON) -m venv "$(VENV_DIR)"; \
+	fi
 
 # ---- Testing ----
 

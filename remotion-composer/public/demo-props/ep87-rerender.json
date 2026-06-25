@@ -1,0 +1,213 @@
+{
+  "theme": "flat-motion-graphics",
+  "cuts": [
+    {
+      "id": "ep87-01",
+      "type": "video",
+      "source": "video/ep87-rerender/ep87-landscape-video.mp4",
+      "source_in_seconds": 0,
+      "in_seconds": 0,
+      "out_seconds": 11,
+      "backgroundColor": "#071018"
+    },
+    {
+      "id": "ep87-02",
+      "type": "video",
+      "source": "video/ep87-rerender/ep87-landscape-video.mp4",
+      "source_in_seconds": 11,
+      "in_seconds": 11,
+      "out_seconds": 22,
+      "backgroundColor": "#071018"
+    },
+    {
+      "id": "ep87-03",
+      "type": "video",
+      "source": "video/ep87-rerender/ep87-landscape-video.mp4",
+      "source_in_seconds": 22,
+      "in_seconds": 22,
+      "out_seconds": 33,
+      "backgroundColor": "#071018"
+    },
+    {
+      "id": "ep87-04",
+      "type": "video",
+      "source": "video/ep87-rerender/ep87-landscape-video.mp4",
+      "source_in_seconds": 33,
+      "in_seconds": 33,
+      "out_seconds": 44,
+      "backgroundColor": "#071018"
+    },
+    {
+      "id": "ep87-05",
+      "type": "video",
+      "source": "video/ep87-rerender/ep87-landscape-video.mp4",
+      "source_in_seconds": 44,
+      "in_seconds": 44,
+      "out_seconds": 55,
+      "backgroundColor": "#071018"
+    },
+    {
+      "id": "ep87-06",
+      "type": "video",
+      "source": "video/ep87-rerender/ep87-landscape-video.mp4",
+      "source_in_seconds": 55,
+      "in_seconds": 55,
+      "out_seconds": 66,
+      "backgroundColor": "#071018"
+    },
+    {
+      "id": "ep87-07",
+      "type": "video",
+      "source": "video/ep87-rerender/ep87-landscape-video.mp4",
+      "source_in_seconds": 66,
+      "in_seconds": 66,
+      "out_seconds": 77,
+      "backgroundColor": "#071018"
+    },
+    {
+      "id": "ep87-08",
+      "type": "video",
+      "source": "video/ep87-rerender/ep87-landscape-video.mp4",
+      "source_in_seconds": 77,
+      "in_seconds": 77,
+      "out_seconds": 88,
+      "backgroundColor": "#071018"
+    },
+    {
+      "id": "ep87-09",
+      "type": "video",
+      "source": "video/ep87-rerender/ep87-landscape-video.mp4",
+      "source_in_seconds": 88,
+      "in_seconds": 88,
+      "out_seconds": 99,
+      "backgroundColor": "#071018"
+    },
+    {
+      "id": "ep87-10",
+      "type": "video",
+      "source": "video/ep87-rerender/ep87-landscape-video.mp4",
+      "source_in_seconds": 99,
+      "in_seconds": 99,
+      "out_seconds": 110,
+      "backgroundColor": "#071018"
+    },
+    {
+      "id": "ep87-11",
+      "type": "video",
+      "source": "video/ep87-rerender/ep87-landscape-video.mp4",
+      "source_in_seconds": 110,
+      "in_seconds": 110,
+      "out_seconds": 121,
+      "backgroundColor": "#071018"
+    },
+    {
+      "id": "ep87-12",
+      "type": "video",
+      "source": "video/ep87-rerender/ep87-landscape-video.mp4",
+      "source_in_seconds": 121,
+      "in_seconds": 121,
+      "out_seconds": 132,
+      "backgroundColor": "#071018"
+    },
+    {
+      "id": "ep87-13",
+      "type": "video",
+      "source": "video/ep87-rerender/ep87-landscape-video.mp4",
+      "source_in_seconds": 132,
+      "in_seconds": 132,
+      "out_seconds": 143,
+      "backgroundColor": "#071018"
+    },
+    {
+      "id": "ep87-14",
+      "type": "video",
+      "source": "video/ep87-rerender/ep87-landscape-video.mp4",
+      "source_in_seconds": 143,
+      "in_seconds": 143,
+      "out_seconds": 154,
+      "backgroundColor": "#071018"
+    },
+    {
+      "id": "ep87-15",
+      "type": "video",
+      "source": "video/ep87-rerender/ep87-landscape-video.mp4",
+      "source_in_seconds": 154,
+      "in_seconds": 154,
+      "out_seconds": 165,
+      "backgroundColor": "#071018"
+    },
+    {
+      "id": "ep87-16",
+      "type": "video",
+      "source": "video/ep87-rerender/ep87-landscape-video.mp4",
+      "source_in_seconds": 165,
+      "in_seconds": 165,
+      "out_seconds": 176,
+      "backgroundColor": "#071018"
+    },
+    {
+      "id": "ep87-17",
+      "type": "video",
+      "source": "video/ep87-rerender/ep87-landscape-video.mp4",
+      "source_in_seconds": 176,
+      "in_seconds": 176,
+      "out_seconds": 187,
+      "backgroundColor": "#071018"
+    },
+    {
+      "id": "ep87-18",
+      "type": "video",
+      "source": "video/ep87-rerender/ep87-landscape-video.mp4",
+      "source_in_seconds": 187,
+      "in_seconds": 187,
+      "out_seconds": 198,
+      "backgroundColor": "#071018"
+    },
+    {
+      "id": "ep87-19",
+      "type": "video",
+      "source": "video/ep87-rerender/ep87-landscape-video.mp4",
+      "source_in_seconds": 198,
+      "in_seconds": 198,
+      "out_seconds": 209,
+      "backgroundColor": "#071018"
+    },
+    {
+      "id": "ep87-20",
+      "type": "video",
+      "source": "video/ep87-rerender/ep87-landscape-video.mp4",
+      "source_in_seconds": 209,
+      "in_seconds": 209,
+      "out_seconds": 219.765986,
+      "backgroundColor": "#071018"
+    }
+  ],
+  "overlays": [
+    {
+      "type": "hero_title",
+      "in_seconds": 0,
+      "out_seconds": 4,
+      "text": "EP87 / First Breath",
+      "subtitle": "Rerendered as a tighter 20-beat montage"
+    },
+    {
+      "type": "section_title",
+      "in_seconds": 107,
+      "out_seconds": 112,
+      "text": "Midpoint Tightening",
+      "subtitle": "Transitions land on scene motion instead of dead air",
+      "accentColor": "#22D3EE"
+    },
+    {
+      "type": "stat_reveal",
+      "in_seconds": 200,
+      "out_seconds": 205,
+      "text": "20 beats",
+      "subtitle": "Same source, cleaner rhythm",
+      "accentColor": "#F59E0B",
+      "position": "bottom-right"
+    }
+  ],
+  "captions": [],
+  "audio": {}
+}
