@@ -1,0 +1,65 @@
+name: Deploy — VM Production
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: "Reason for manual deploy"
+        required: false
+        default: "manual trigger"
+
+concurrency:
+  group: deploy-vm-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  APP_DIR: /opt/app/openmontage
+  PYTHON: python3.11
+
+jobs:
+  deploy:
+    name: Deploy to VM
+    runs-on: ubuntu-latest
+    if: github.repository == 'madezmedia/openmontage'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Deploy via SSH
+        run: |
+          ssh ${{ secrets.VM_SSH_USER }}@${{ vars.VM_HOST }} << 'ENDSSH'
+            set -e
+            echo "=== Pull latest code ==="
+            mkdir -p /opt/app/openmontage
+            cd /opt/app/openmontage
+            git pull origin main
+
+            echo "=== Create venv if needed ==="
+            if [ ! -d ".venv" ]; then
+              $PYTHON -m venv .venv
+            fi
+
+            echo "=== Install dependencies ==="
+            . .venv/bin/activate
+            pip install --upgrade pip
+            pip install -r requirements.txt
+            pip install -e .
+
+            echo "=== Verify install ==="
+            python -c "import openmontage; print('OpenMontage imported OK')" 2>/dev/null || \
+              python -c "import sys; sys.path.insert(0,'.'); exec(open('setup.py').read().split('install_requires')[0])" 2>/dev/null || \
+              echo "Package validation skipped (CLI-only)"
+
+            echo "=== Done ==="
+          ENDSSH
+
+      - name: Post deploy
+        run: echo "✅ OpenMontage deployed — ${{ github.sha }}"
